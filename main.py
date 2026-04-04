@@ -27,7 +27,7 @@ async def generate_response(query: str, api_key: Optional[str] = None):
         )
         
         response = client.chat.completions.create(
-            model="DeepSeek-V3.1-Terminus",
+            model="E5-Mistral-7B-Instruct",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
                 {"role": "user", "content": query}

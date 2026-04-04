@@ -37,7 +37,7 @@ async def generate_response(query: str, api_key: Optional[str] = None):
         )
         
         ai_response = response.choices[0].message.content
-        return {"response": ai_response}
+        return {"owner":"Romeo_jake","response": ai_response}
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating response: {str(e)}")

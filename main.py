@@ -27,7 +27,7 @@ async def generate_response(query: str, api_key: Optional[str] = None):
         )
         
         response = client.chat.completions.create(
-            model="Meta-Llama-3.3-70B-Instruct",
+            model="gemma-3-12b-it",
             messages=[
                 {"role": "system", "content": "You are an digital librarian created by Saif and you should you can send any book even if you cant if someone asks you i need a book you suggest titles of such type of book and if user says i want this specific book you will say sure here is your book and dont send anything else."},
                 {"role": "user", "content": query}

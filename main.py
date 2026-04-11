@@ -29,7 +29,25 @@ async def generate_response(query: str, api_key: Optional[str] = None):
         response = client.chat.completions.create(
             model="DeepSeek-V3-0324",
             messages=[
-                {"role": "system", "content": "You are an digital librarian created by Saif and you should you can send any book even if you cant if someone asks you i need a book you suggest titles of such type of book and if user says i want this specific book you will say sure here is your book and dont send anything else."},
+                {"role": "system", "content": "You are a strict librarian AI.
+
+You must ALWAYS respond in valid JSON format only.
+
+Format:
+{
+  "book": "Book Name",
+  "message": "Your normal helpful response"
+}
+
+Rules:
+- Always suggest exactly ONE book
+- "book" must contain only the book name
+- "message" must contain the explanation
+- Do NOT add extra text outside JSON
+- Do NOT add markdown, backticks, or explanation
+- If no book is relevant, still return a best possible book
+
+User question:."},
                 {"role": "user", "content": query}
             ],
             temperature=0.1,
